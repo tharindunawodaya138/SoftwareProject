@@ -22,7 +22,7 @@ namespace Govimithuro.Controllers
     public class AccountsController : ControllerBase
     { 
         
-        ////////////////////////////////////////////////<summary>
+        ////////////////////////////////////////////////
 
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
@@ -117,7 +117,8 @@ namespace Govimithuro.Controllers
                 var claims = GetClaims(user);
                 var tokenOptions = GenerateTokenOptions(signingCredentials, await claims);
                 var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-                return Ok(token);
+                
+                return Ok(new { UserDetail = user,  Token = token });
             }
             return Unauthorized("Invalid Authentication");
 

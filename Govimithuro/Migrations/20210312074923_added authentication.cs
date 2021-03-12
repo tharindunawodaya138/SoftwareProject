@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Govimithuro.Migrations
 {
-    public partial class initial : Migration
+    public partial class addedauthentication : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -220,7 +220,9 @@ namespace Govimithuro.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true)
+                    LastName = table.Column<string>(nullable: true),
+                    Phone = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -230,17 +232,17 @@ namespace Govimithuro.Migrations
             migrationBuilder.InsertData(
                 table: "IdentityRole",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "44cd0788-d25e-4743-bf5e-dbef25e60850", "67a8a962-ac1f-416f-a299-aff4d37316e0", "Buyer", "BUYER" });
+                values: new object[] { "90276467-090f-4668-ab28-61f4b0b451e8", "a6b7c8d6-1f80-464b-bb67-fef02018fe8b", "Buyer", "BUYER" });
 
             migrationBuilder.InsertData(
                 table: "IdentityRole",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "20555781-c793-47ef-88ca-6faf8ae4d3a9", "8ee25a2b-a52a-4e47-85b2-4c0ba0482c62", "Seller", "SELLER" });
+                values: new object[] { "d2f94e42-2002-435b-b0c1-74b7feb2155f", "6061c173-8411-429d-9f1d-ea8f5621e350", "Seller", "SELLER" });
 
             migrationBuilder.InsertData(
                 table: "IdentityRole",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "38ed9a87-50c7-4469-9a1c-595cfca13db1", "924d216a-8555-489d-9424-d5c8a265e053", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "cfa8ecb6-f4d8-4d88-a508-98bf8ddda763", "3d73ecc9-61b1-4609-9076-7850f46c242b", "Administrator", "ADMINISTRATOR" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -290,6 +290,9 @@ namespace Govimithuro.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -318,6 +321,9 @@ namespace Govimithuro.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -361,22 +367,22 @@ namespace Govimithuro.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "44cd0788-d25e-4743-bf5e-dbef25e60850",
-                            ConcurrencyStamp = "67a8a962-ac1f-416f-a299-aff4d37316e0",
+                            Id = "90276467-090f-4668-ab28-61f4b0b451e8",
+                            ConcurrencyStamp = "a6b7c8d6-1f80-464b-bb67-fef02018fe8b",
                             Name = "Buyer",
                             NormalizedName = "BUYER"
                         },
                         new
                         {
-                            Id = "20555781-c793-47ef-88ca-6faf8ae4d3a9",
-                            ConcurrencyStamp = "8ee25a2b-a52a-4e47-85b2-4c0ba0482c62",
+                            Id = "d2f94e42-2002-435b-b0c1-74b7feb2155f",
+                            ConcurrencyStamp = "6061c173-8411-429d-9f1d-ea8f5621e350",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         },
                         new
                         {
-                            Id = "38ed9a87-50c7-4469-9a1c-595cfca13db1",
-                            ConcurrencyStamp = "924d216a-8555-489d-9424-d5c8a265e053",
+                            Id = "cfa8ecb6-f4d8-4d88-a508-98bf8ddda763",
+                            ConcurrencyStamp = "3d73ecc9-61b1-4609-9076-7850f46c242b",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
