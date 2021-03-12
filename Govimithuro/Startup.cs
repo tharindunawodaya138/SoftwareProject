@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Govimithuro.Services;
 
 namespace Govimithuro
 {
@@ -31,6 +32,7 @@ namespace Govimithuro
         {
             services.AddDbContext<GovimithuroDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("GovimithuroConnection")));
             services.AddControllers();
+            services.AddTransient<IMailService, MailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

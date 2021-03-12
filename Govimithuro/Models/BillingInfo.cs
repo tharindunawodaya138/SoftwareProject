@@ -15,6 +15,7 @@ namespace Govimithuro.Models
         public string ExpDate { get; set; }
         public int Cvv { get; set; }
         public string BillDate { get; set; }
-        
+        public string Email { get; set; }
+
     }
 }

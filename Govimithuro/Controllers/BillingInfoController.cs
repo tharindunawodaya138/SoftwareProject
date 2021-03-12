@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Govimithuro.Models;
+using Govimithuro.Services;
 
 namespace Govimithuro.Controllers
 {
@@ -14,10 +16,14 @@ namespace Govimithuro.Controllers
     public class BillingInfoController : ControllerBase
     {
         private readonly GovimithuroDbContext _context;
+        private readonly IConfiguration _config;
+        private IMailService _mailService;
 
-        public BillingInfoController(GovimithuroDbContext context)
+        public BillingInfoController(GovimithuroDbContext context, IConfiguration config, IMailService mailService)
         {
             _context = context;
+            _config = config;
+            _mailService = mailService;
         }
 
         // GET: api/BillingInfo
@@ -81,6 +87,7 @@ namespace Govimithuro.Controllers
         {
             _context.BillingInfoTable.Add(billingInfo);
             await _context.SaveChangesAsync();
+            await _mailService.SendEmailAsync(billingInfo.Email, "Payment Confirmation for Bill No:" + billingInfo.BillingId, "<p><strong>Thank you for using Govimithuro!</strong></p> <p>This email is to confirm your recent transaction.</p><p> Card Holder's Name:" + billingInfo.CardName + "<p>Card No :" + billingInfo.CardNo + "<p>Date :" + DateTime.Now);
 
             return CreatedAtAction("GetBillingInfo", new { id = billingInfo.BillingId }, billingInfo);
         }
