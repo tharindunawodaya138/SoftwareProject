@@ -9223,19 +9223,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\acer\\.nuget\\packages\\": {}
+    "C:\\Users\\kalup\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\acer\\Desktop\\Govimithuro\\Govimithuro_solution\\Govimithuro\\Govimithuro.csproj",
+      "projectUniqueName": "C:\\Users\\kalup\\OneDrive\\Documents\\GitHub\\SoftwareProject-backend\\Govimithuro\\Govimithuro.csproj",
       "projectName": "Govimithuro",
-      "projectPath": "C:\\Users\\acer\\Desktop\\Govimithuro\\Govimithuro_solution\\Govimithuro\\Govimithuro.csproj",
-      "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\acer\\Desktop\\Govimithuro\\Govimithuro_solution\\Govimithuro\\obj\\",
+      "projectPath": "C:\\Users\\kalup\\OneDrive\\Documents\\GitHub\\SoftwareProject-backend\\Govimithuro\\Govimithuro.csproj",
+      "packagesPath": "C:\\Users\\kalup\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kalup\\OneDrive\\Documents\\GitHub\\SoftwareProject-backend\\Govimithuro\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kalup\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9247,6 +9247,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -9258,6 +9259,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Cors": {
             "target": "Package",
@@ -9308,7 +9310,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
