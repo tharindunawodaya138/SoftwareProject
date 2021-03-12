@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Govimithuro.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Govimithuro.Controllers
 {
@@ -14,17 +16,35 @@ namespace Govimithuro.Controllers
     public class ProductController : ControllerBase
     {
         private readonly GovimithuroDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public ProductController(GovimithuroDbContext context)
+        public ProductController(GovimithuroDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: api/Product
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductTable()
         {
-            return await _context.ProductTable.ToListAsync();
+            return await _context.ProductTable
+                .Select(x => new Product()
+                {
+                    ProductId = x.ProductId,
+                    ProductName = x.ProductName,
+                    SupplierId = x.SupplierId,
+                    ReorderLevel = x.ReorderLevel,
+                    Quantity = x.Quantity,
+                    Addresse = x.Addresse,
+                    CategoryName = x.CategoryName,
+                    ProductDescription = x.ProductDescription,
+                    UnitPrice = x.UnitPrice,
+                    UnitWeight = x.UnitWeight,
+                    ImageName = x.ImageName,
+                    ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
+                })
+                .ToListAsync();
         }
 
         // GET: api/Product/5
@@ -52,6 +72,11 @@ namespace Govimithuro.Controllers
                 return BadRequest();
             }
 
+            if (product.ImageFile != null)
+            {
+                DeleteImage(product.ImageName);
+                product.ImageName = await SaveImage(product.ImageFile);
+            }
             _context.Entry(product).State = EntityState.Modified;
 
             try
@@ -77,12 +102,13 @@ namespace Govimithuro.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        public async Task<ActionResult<Product>> PostProduct([FromForm] Product product)
         {
+            product.ImageName = await SaveImage(product.ImageFile);
             _context.ProductTable.Add(product);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProduct", new { id = product.ProductId }, product);
+            return StatusCode(201);
         }
 
         // DELETE: api/Product/5
@@ -95,6 +121,7 @@ namespace Govimithuro.Controllers
                 return NotFound();
             }
 
+            DeleteImage(product.ImageName);
             _context.ProductTable.Remove(product);
             await _context.SaveChangesAsync();
 
@@ -105,5 +132,27 @@ namespace Govimithuro.Controllers
         {
             return _context.ProductTable.Any(e => e.ProductId == id);
         }
+
+        [NonAction]
+        public async Task<string> SaveImage(IFormFile imageFile)
+        {
+            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).Take(10).ToArray()).Replace(' ', '-');
+            imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
+            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            {
+                await imageFile.CopyToAsync(fileStream);
+            }
+            return imageName;
+        }
+
+        [NonAction]
+        public void DeleteImage(string imageName)
+        {
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+        }
     }
 }
+

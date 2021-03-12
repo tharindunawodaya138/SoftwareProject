@@ -10,8 +10,10 @@ namespace Govimithuro.Models
     {
         [Key]
         public int BillingId { get; set; }
-        public int CardNo { get; set; }
+        public string CardName { get; set; }
+        public string CardNo { get; set; }
         public string ExpDate { get; set; }
+        public int Cvv { get; set; }
         public string BillDate { get; set; }
         
     }
