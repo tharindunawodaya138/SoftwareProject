@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Academic\\Semester 6\\SoftwareProject-Backend\\Govimithuro\\Govimithuro.csproj": {}
+    "C:\\Users\\kalup\\OneDrive\\Documents\\GitHub\\SoftwareProject-backend\\Govimithuro\\Govimithuro.csproj": {}
   },
   "projects": {
-    "F:\\Academic\\Semester 6\\SoftwareProject-Backend\\Govimithuro\\Govimithuro.csproj": {
+    "C:\\Users\\kalup\\OneDrive\\Documents\\GitHub\\SoftwareProject-backend\\Govimithuro\\Govimithuro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Academic\\Semester 6\\SoftwareProject-Backend\\Govimithuro\\Govimithuro.csproj",
+        "projectUniqueName": "C:\\Users\\kalup\\OneDrive\\Documents\\GitHub\\SoftwareProject-backend\\Govimithuro\\Govimithuro.csproj",
         "projectName": "Govimithuro",
-        "projectPath": "F:\\Academic\\Semester 6\\SoftwareProject-Backend\\Govimithuro\\Govimithuro.csproj",
-        "packagesPath": "C:\\Users\\Chathu\\.nuget\\packages\\",
-        "outputPath": "F:\\Academic\\Semester 6\\SoftwareProject-Backend\\Govimithuro\\obj\\",
+        "projectPath": "C:\\Users\\kalup\\OneDrive\\Documents\\GitHub\\SoftwareProject-backend\\Govimithuro\\Govimithuro.csproj",
+        "packagesPath": "C:\\Users\\kalup\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kalup\\OneDrive\\Documents\\GitHub\\SoftwareProject-backend\\Govimithuro\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Chathu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\kalup\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -30,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -41,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
@@ -95,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
