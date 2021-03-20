@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Govimithuro.Migrations
 {
     [DbContext(typeof(GovimithuroDbContext))]
-    [Migration("20201119200355_ChangeFarmerPhhoneDatatype")]
-    partial class ChangeFarmerPhhoneDatatype
+    [Migration("20210312145854_EditBillingInfoController")]
+    partial class EditBillingInfoController
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,8 +51,17 @@ namespace Govimithuro.Migrations
                     b.Property<string>("BillDate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CardNo")
+                    b.Property<string>("CardName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CardNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Cvv")
                         .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ExpDate")
                         .HasColumnType("nvarchar(max)");
@@ -68,6 +77,9 @@ namespace Govimithuro.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CustomerID")
+                        .HasColumnType("int");
 
                     b.Property<int>("NumOfProducts")
                         .HasColumnType("int");
@@ -228,7 +240,7 @@ namespace Govimithuro.Migrations
                     b.Property<string>("CategoryName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Picture")
+                    b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductDescription")

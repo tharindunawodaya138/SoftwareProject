@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Govimithuro.Models;
+using Govimithuro.Data;
 
 namespace Govimithuro.Models
 {
@@ -13,6 +15,19 @@ namespace Govimithuro.Models
             : base(options)
         {
         }
+
+        // <summary>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.Entity<IdentityUserRole<string>>().HasKey(p => new { p.UserId, p.RoleId });
+        }
+        // </summary>
+        public DbSet<Govimithuro.Models.User> Users{ get; set; }
+        /// </summary>
+
+
         public DbSet<Govimithuro.Models.Admin> AdminTable { get; set; }
         public DbSet<Govimithuro.Models.Customer> CustomerTable { get; set; }
 
@@ -23,6 +38,7 @@ namespace Govimithuro.Models
         public DbSet<Govimithuro.Models.Cart> CartTable { get; set; }
         public DbSet<Govimithuro.Models.Category> CategoryTable { get; set; }
         public DbSet<Govimithuro.Models.BillingInfo> BillingInfoTable { get; set; }
+        public DbSet<Govimithuro.Models.Login> LoginTable { get; set; }
 
     }
 
