@@ -20,8 +20,8 @@ namespace Govimithuro.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class AccountsController : ControllerBase
-    { 
-        
+    {
+
         ////////////////////////////////////////////////
 
         private readonly IMapper _mapper;
@@ -36,11 +36,11 @@ namespace Govimithuro.Controllers
         }
 
         /////////// <testing authorization for different roles>
-        
+
         [Authorize(Roles = "Buyer")]
         [HttpGet("testBuyer")]
         public String TestBuyer()
-        {    return "Hello Buyer";      }
+        { return "Hello Buyer"; }
 
         [Authorize(Roles = "Seller")]
         [HttpGet("testSeller")]
@@ -52,6 +52,12 @@ namespace Govimithuro.Controllers
         public String TestAdmin()
         { return "Hello Admin"; }
 
+        [Authorize(Roles ="Administrator, Seller, Buyer")]
+        [HttpGet("User")]
+        public String TestUser()
+        {
+            return "Authorized";
+        }
         ///////// </test>
 
 
@@ -118,7 +124,12 @@ namespace Govimithuro.Controllers
                 var tokenOptions = GenerateTokenOptions(signingCredentials, await claims);
                 var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
                 
-                return Ok(new { UserDetail = user,  Token = token });
+                return Ok(new { 
+                    UserFirstName = user.FirstName,
+                    UserLastName = user.LastName, 
+                    UserEmail = user.Email,
+                    UserAddress = user.Address, 
+                    Token = token });
             }
             return Unauthorized("Invalid Authentication");
 
