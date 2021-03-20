@@ -666,3 +666,13 @@ C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.RazorTargetAssemblyInfo.cache
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.csproj.CopyComplete
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.genruntimeconfig.cache
+C:\Users\acer\Desktop\Govimithuro\Govimithuro_solution\Govimithuro\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\acer\Desktop\Govimithuro\Govimithuro_solution\Govimithuro\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\acer\Desktop\Govimithuro\Govimithuro_solution\Govimithuro\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\acer\Desktop\Govimithuro\Govimithuro_solution\Govimithuro\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\acer\Desktop\Govimithuro\Govimithuro_solution\Govimithuro\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\acer\Desktop\Govimithuro\Govimithuro_solution\Govimithuro\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\acer\Desktop\Govimithuro\Govimithuro_solution\Govimithuro\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\acer\Desktop\Govimithuro\Govimithuro_solution\Govimithuro\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\acer\Desktop\Govimithuro\Govimithuro_solution\Govimithuro\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Users\acer\Desktop\Govimithuro\Govimithuro_solution\Govimithuro\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll

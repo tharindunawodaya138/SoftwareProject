@@ -4,14 +4,16 @@ using Govimithuro.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Govimithuro.Migrations
 {
     [DbContext(typeof(GovimithuroDbContext))]
-    partial class GovimithuroDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210320103159_EditOrderandProduct1")]
+    partial class EditOrderandProduct1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -208,17 +210,20 @@ namespace Govimithuro.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("ProductName")
+                    b.Property<int>("OrderNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OrderdDate")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Quantity")
                         .HasColumnType("real");
 
-                    b.Property<float>("UnitPrice")
-                        .HasColumnType("real");
+                    b.Property<string>("RequiredDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OrderId");
 
@@ -262,9 +267,6 @@ namespace Govimithuro.Migrations
                     b.Property<string>("CategoryName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
@@ -278,6 +280,9 @@ namespace Govimithuro.Migrations
                         .HasColumnType("real");
 
                     b.Property<int>("ReorderLevel")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SupplierId")
                         .HasColumnType("int");
 
                     b.Property<float>("UnitPrice")
@@ -376,22 +381,22 @@ namespace Govimithuro.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ad5698bb-e1ab-43d3-be33-51d3820528a4",
-                            ConcurrencyStamp = "8c0ac3ec-13a5-4c75-8081-024564902a48",
+                            Id = "212d013b-eae3-42fa-a5cc-dca3e44d36d8",
+                            ConcurrencyStamp = "35378d97-b4c0-4665-91c7-26b6da5865b2",
                             Name = "Buyer",
                             NormalizedName = "BUYER"
                         },
                         new
                         {
-                            Id = "b8995d38-62a7-4f76-8415-136002f0a0be",
-                            ConcurrencyStamp = "d51ee333-476c-4e4d-9372-1ae4f9fe3c17",
+                            Id = "de3896ae-3e8d-49e7-88ef-febbcf31133b",
+                            ConcurrencyStamp = "8b62760e-8c02-4496-8d2e-127c0d9d79b6",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         },
                         new
                         {
-                            Id = "0592dfcb-74d0-410c-9c25-251bad183f90",
-                            ConcurrencyStamp = "db19ecae-6ffc-42ff-92f2-c1e5b1dc5db8",
+                            Id = "1f4dc520-47f0-467f-9d03-50ef6c6b9de7",
+                            ConcurrencyStamp = "c82faaa8-e087-455e-a930-286660272487",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

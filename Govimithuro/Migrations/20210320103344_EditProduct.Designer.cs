@@ -4,14 +4,16 @@ using Govimithuro.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Govimithuro.Migrations
 {
     [DbContext(typeof(GovimithuroDbContext))]
-    partial class GovimithuroDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210320103344_EditProduct")]
+    partial class EditProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -208,17 +210,20 @@ namespace Govimithuro.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("ProductName")
+                    b.Property<int>("OrderNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OrderdDate")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Quantity")
                         .HasColumnType("real");
 
-                    b.Property<float>("UnitPrice")
-                        .HasColumnType("real");
+                    b.Property<string>("RequiredDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OrderId");
 
@@ -278,6 +283,9 @@ namespace Govimithuro.Migrations
                         .HasColumnType("real");
 
                     b.Property<int>("ReorderLevel")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SupplierId")
                         .HasColumnType("int");
 
                     b.Property<float>("UnitPrice")
@@ -376,22 +384,22 @@ namespace Govimithuro.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ad5698bb-e1ab-43d3-be33-51d3820528a4",
-                            ConcurrencyStamp = "8c0ac3ec-13a5-4c75-8081-024564902a48",
+                            Id = "7c8587a4-a4ef-440e-8d83-58e59c8cd5ed",
+                            ConcurrencyStamp = "ec8dda99-d180-49b2-9e4f-f0bb9c5d0bc3",
                             Name = "Buyer",
                             NormalizedName = "BUYER"
                         },
                         new
                         {
-                            Id = "b8995d38-62a7-4f76-8415-136002f0a0be",
-                            ConcurrencyStamp = "d51ee333-476c-4e4d-9372-1ae4f9fe3c17",
+                            Id = "f7543301-392c-48d4-b5fe-1148d0ab147e",
+                            ConcurrencyStamp = "d65195a8-c4d1-47f9-9906-fc3f7bb32aa9",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         },
                         new
                         {
-                            Id = "0592dfcb-74d0-410c-9c25-251bad183f90",
-                            ConcurrencyStamp = "db19ecae-6ffc-42ff-92f2-c1e5b1dc5db8",
+                            Id = "f0d3cb48-f5ce-4430-8e7c-fb0fe5bf41a8",
+                            ConcurrencyStamp = "e4c86ed1-8bfe-4451-902f-0999a352e622",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
