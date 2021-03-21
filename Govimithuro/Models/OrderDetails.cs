@@ -10,9 +10,7 @@ namespace Govimithuro.Models
     {
         [Key]
         public int OrderId { get; set; }
-        public int ProductId { get; set; }
-        public float UnitPrice { get; set; }
-        public float Quantity { get; set; }
-        public int OrderNumber { get; set; }
+        public string Feedback { get; set; }
+        public string Email { get; set; }
     }
 }
