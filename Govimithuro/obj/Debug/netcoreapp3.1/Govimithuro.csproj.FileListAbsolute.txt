@@ -492,14 +492,6 @@ F:\Academic\Semester 6\SoftwareProject-Backend\Govimithuro\bin\Debug\netcoreapp3
 F:\Academic\Semester 6\SoftwareProject-Backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.csproj.CoreCompileInputs.cache
 F:\Academic\Semester 6\SoftwareProject-Backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.MvcApplicationPartsAssemblyInfo.cs
 F:\Academic\Semester 6\SoftwareProject-Backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.csprojAssemblyReference.cache
-C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.AssemblyInfoInputs.cache
-C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.AssemblyInfo.cs
-C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.csproj.CoreCompileInputs.cache
-C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.dll
-C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.pdb
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\bin\Debug\netcoreapp3.1\Govimithuro.exe
@@ -660,9 +652,17 @@ C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\bin
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.AssemblyInfoInputs.cache
+C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.AssemblyInfo.cs
+C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.csproj.CoreCompileInputs.cache
+C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\staticwebassets\Govimithuro.StaticWebAssets.Manifest.cache
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\staticwebassets\Govimithuro.StaticWebAssets.xml
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\scopedcss\bundle\Govimithuro.styles.css
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.RazorTargetAssemblyInfo.cache
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.csproj.CopyComplete
+C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.dll
+C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.pdb
 C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.genruntimeconfig.cache
+C:\Users\kalup\OneDrive\Documents\GitHub\SoftwareProject-backend\Govimithuro\obj\Debug\netcoreapp3.1\Govimithuro.csprojAssemblyReference.cache
