@@ -24,7 +24,7 @@ namespace Govimithuro.Models
             modelBuilder.Entity<IdentityUserRole<string>>().HasKey(p => new { p.UserId, p.RoleId });
         }
         // </summary>
-        public DbSet<Govimithuro.Models.User> Users{ get; set; }
+        public DbSet<Govimithuro.Models.User> UserTable{ get; set; }
         /// </summary>
 
 
