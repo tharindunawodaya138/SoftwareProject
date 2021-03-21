@@ -4,14 +4,16 @@ using Govimithuro.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Govimithuro.Migrations
 {
     [DbContext(typeof(GovimithuroDbContext))]
-    partial class GovimithuroDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210321003459_EditOrderModel")]
+    partial class EditOrderModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -208,20 +210,23 @@ namespace Govimithuro.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
+                    b.Property<string>("CustomerEmail")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OrderNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("CustomerName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OrderdDate")
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Quantity")
                         .HasColumnType("real");
 
-                    b.Property<string>("RequiredDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<float>("UnitPrice")
+                        .HasColumnType("real");
 
                     b.HasKey("OrderId");
 
@@ -265,6 +270,9 @@ namespace Govimithuro.Migrations
                     b.Property<string>("CategoryName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
@@ -278,9 +286,6 @@ namespace Govimithuro.Migrations
                         .HasColumnType("real");
 
                     b.Property<int>("ReorderLevel")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SupplierId")
                         .HasColumnType("int");
 
                     b.Property<float>("UnitPrice")
@@ -305,12 +310,6 @@ namespace Govimithuro.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("AgriBranch")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AscrNo")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -331,9 +330,6 @@ namespace Govimithuro.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("Nic")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(max)");
@@ -364,7 +360,7 @@ namespace Govimithuro.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserTable");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -388,22 +384,22 @@ namespace Govimithuro.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "62745e58-d2e2-4739-96b7-4d7a05afaead",
-                            ConcurrencyStamp = "5c16d8c1-44ce-41f7-9322-f9000fe6870d",
+                            Id = "fb92e9c3-91dc-493e-ac0a-5bef3bbc943c",
+                            ConcurrencyStamp = "df350fe7-5142-46f9-ad62-5abc6c7174a3",
                             Name = "Buyer",
                             NormalizedName = "BUYER"
                         },
                         new
                         {
-                            Id = "b3a9c4f1-01ce-4826-a078-64f00b1eaee3",
-                            ConcurrencyStamp = "ce9bd55b-1e5b-43cc-9ca7-fba406ef8f39",
+                            Id = "5a9b2fed-831c-4f9d-9196-6f53cca7339d",
+                            ConcurrencyStamp = "c66bbee6-157e-43af-8ac4-435c3d522ba7",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         },
                         new
                         {
-                            Id = "4ff0e0fe-8e6c-4ede-b822-313c3156b58b",
-                            ConcurrencyStamp = "c1795aef-fb77-4bf6-919a-a658b9030bac",
+                            Id = "fbd23870-9da9-4708-a6bd-06578db6df2b",
+                            ConcurrencyStamp = "20034185-a0d4-4e77-8c61-ea29b4f46607",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

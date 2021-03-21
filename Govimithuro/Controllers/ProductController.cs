@@ -33,7 +33,7 @@ namespace Govimithuro.Controllers
                 {
                     ProductId = x.ProductId,
                     ProductName = x.ProductName,
-                    SupplierId = x.SupplierId,
+                    Email = x.Email,
                     ReorderLevel = x.ReorderLevel,
                     Quantity = x.Quantity,
                     Addresse = x.Addresse,
