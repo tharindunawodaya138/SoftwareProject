@@ -16,5 +16,7 @@ namespace Govimithuro.Models
         public float UnitPrice { get; set; }
 
         public string Email { get; set; }
+        public string CustomerEmail { get; set; }
+        public string CustomerName { get; set; }
     }
 }
