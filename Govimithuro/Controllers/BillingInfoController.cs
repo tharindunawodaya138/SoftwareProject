@@ -18,12 +18,14 @@ namespace Govimithuro.Controllers
         private readonly GovimithuroDbContext _context;
         private readonly IConfiguration _config;
         private IMailService _mailService;
+        private MakePayment _makePayment;
 
-        public BillingInfoController(GovimithuroDbContext context, IConfiguration config, IMailService mailService)
+        public BillingInfoController(GovimithuroDbContext context, IConfiguration config, IMailService mailService, MakePayment makePayment)
         {
             _context = context;
             _config = config;
             _mailService = mailService;
+            _makePayment = makePayment;
         }
 
         // GET: api/BillingInfo
@@ -87,6 +89,7 @@ namespace Govimithuro.Controllers
         {
             _context.BillingInfoTable.Add(billingInfo);
             await _context.SaveChangesAsync();
+            await _makePayment.PayAsync(billingInfo.CardNo, billingInfo.ExpMonth, billingInfo.ExpYear, billingInfo.Cvv, billingInfo.TotalPrice);
             await _mailService.SendEmailAsync(billingInfo.Email, "Payment Confirmation for Bill No:" + billingInfo.BillingId, "<p><strong>Thank you for using Govimithuro!</strong></p> <p>This email is to confirm your recent transaction.</p><p> Card Holder's Name:" + billingInfo.CardName + "<p>Card No :" + billingInfo.CardNo + "<p>Date :" + DateTime.Now);
 
             return CreatedAtAction("GetBillingInfo", new { id = billingInfo.BillingId }, billingInfo);
