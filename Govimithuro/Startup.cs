@@ -41,6 +41,7 @@ namespace Govimithuro
             // DB Context
             services.AddDbContext<GovimithuroDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("GovimithuroConnection")));
             services.AddControllers();
+            services.AddTransient<MakePayment>();
             services.AddTransient<IMailService, MailService>();
 
             /////////////////////////////////////////////////////////////////
