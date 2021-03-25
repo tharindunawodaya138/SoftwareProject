@@ -4,14 +4,16 @@ using Govimithuro.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Govimithuro.Migrations
 {
     [DbContext(typeof(GovimithuroDbContext))]
-    partial class GovimithuroDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210325095617_AddDateToOrderModel")]
+    partial class AddDateToOrderModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -223,9 +225,6 @@ namespace Govimithuro.Migrations
                     b.Property<string>("CustomerName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -397,22 +396,22 @@ namespace Govimithuro.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ecef65bb-8e0c-43d7-911f-a2c08ee4b355",
-                            ConcurrencyStamp = "cdcaff7a-049b-48c0-a666-5af7f83377c8",
+                            Id = "db8dd43f-9199-43f9-9167-fd3cc4b03006",
+                            ConcurrencyStamp = "148a4cc6-f40d-4879-8bf2-84b4e6b00ba1",
                             Name = "Buyer",
                             NormalizedName = "BUYER"
                         },
                         new
                         {
-                            Id = "63acb5e9-e38c-4703-88bd-d488c7ea0bdb",
-                            ConcurrencyStamp = "54da2c69-a81d-498a-9520-7410f4e64fba",
+                            Id = "fd8d8d51-0ed4-4ad3-aac6-35cd5769cce0",
+                            ConcurrencyStamp = "c06428df-b9dc-43cb-be31-a8323412ad8b",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         },
                         new
                         {
-                            Id = "19b4e086-f15c-401d-b53a-7c8b7c2d53ae",
-                            ConcurrencyStamp = "02b6aa30-fbe2-4202-9518-67cfa27e3bc4",
+                            Id = "aba859b2-7d27-4fed-8bb1-84b21fc6a54e",
+                            ConcurrencyStamp = "bccd7c10-c44a-4d2b-bb03-0a78066a76b4",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
