@@ -66,15 +66,23 @@ namespace Govimithuro.Controllers
         [HttpPost("Customer")]
         public async Task<ActionResult> Customer(UserRegistrationModel userModel)
         {
-            var user = _mapper.Map<User>(userModel);
-            var result = await _userManager.CreateAsync(user, userModel.Password);
-            if (!result.Succeeded)
-            {
-                return Ok(result.Errors);
-            }
-            await _userManager.AddToRoleAsync(user, "Buyer");
+            // check wheteher user email is already available
+            var userAvaiblable = await _userManager.FindByEmailAsync(userModel.Email);
 
-            return StatusCode(201);
+            if (userAvaiblable == null)
+            {
+                var user = _mapper.Map<User>(userModel);
+                var result = await _userManager.CreateAsync(user, userModel.Password);
+                if (!result.Succeeded)
+                {
+                    return Ok(result.Errors);
+                }
+                await _userManager.AddToRoleAsync(user, "Buyer");
+
+                return StatusCode(201);
+            }
+            return StatusCode(409);
+
         }
 
 
@@ -82,15 +90,23 @@ namespace Govimithuro.Controllers
         [HttpPost("Farmer")]
         public async Task<ActionResult> Farmer(UserRegistrationModel userModel)
         {
-            var user = _mapper.Map<User>(userModel);
-            var result = await _userManager.CreateAsync(user, userModel.Password);
-            if (!result.Succeeded)
-            {
-                return Ok(result.Errors);
-            }
-            await _userManager.AddToRoleAsync(user, "Seller");
+            // check wheteher user email is already available
+            var userAvaiblable = await _userManager.FindByEmailAsync(userModel.Email);
 
-            return StatusCode(201);
+            if(userAvaiblable == null)
+            {
+                var user = _mapper.Map<User>(userModel);
+                var result = await _userManager.CreateAsync(user, userModel.Password);
+                if (!result.Succeeded)
+                {
+                    return Ok(result.Errors);
+                }
+                await _userManager.AddToRoleAsync(user, "Seller");
+                return StatusCode(201);
+            }
+            return StatusCode(409);
+
+            
         }
 
 
@@ -99,22 +115,29 @@ namespace Govimithuro.Controllers
         [HttpPost("Administrator")]
         public async Task<ActionResult> Administrator(UserRegistrationModel userModel)
         {
-            var user = _mapper.Map<User>(userModel);
-            var result = await _userManager.CreateAsync(user, userModel.Password);
-            if (!result.Succeeded)
+            var userAvaiblable = await _userManager.FindByEmailAsync(userModel.Email);
+
+            if (userAvaiblable == null)
             {
-                return Ok(result.Errors);
+                var user = _mapper.Map<User>(userModel);
+                var result = await _userManager.CreateAsync(user, userModel.Password);
+                if (!result.Succeeded)
+                {
+                    return Ok(result.Errors);
+                }
+                await _userManager.AddToRoleAsync(user, "Administrator");
+
+                return StatusCode(201);
             }
-            await _userManager.AddToRoleAsync(user, "Administrator");
+            return StatusCode(409);
 
-            return StatusCode(201);
         }
-
 
         // All the login activities are done through this. Token will be issued depending on the role
         [HttpPost("Login")]
         public async Task<IActionResult> Login(UserLoginModel userModel)
         {
+            // Resolve the user via their email
             var user = await _userManager.FindByEmailAsync(userModel.Email);
 
             if (user != null && await _userManager.CheckPasswordAsync(user, userModel.Password))
@@ -123,18 +146,58 @@ namespace Govimithuro.Controllers
                 var claims = GetClaims(user);
                 var tokenOptions = GenerateTokenOptions(signingCredentials, await claims);
                 var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-                
-                return Ok(new { 
+
+                // get the role of the user
+                var roles = await _userManager.GetRolesAsync(user);
+                              
+               
+
+                return Ok(new {
+                    UserRole =roles,
                     UserFirstName = user.FirstName,
-                    UserLastName = user.LastName, 
+                    UserLastName = user.LastName,
                     UserEmail = user.Email,
                     UserAddress = user.Address,
                     UserPhone = user.Phone,
-                    Token = token });
+                    Token = token })   ;
             }
             return Unauthorized("Invalid Authentication");
 
         }
+
+
+
+        [HttpPost("UpdateUser")]
+        public async Task<ActionResult> UpdateUser(UserRegistrationModel userModel)
+        {
+            var userAvaiblable = await _userManager.FindByEmailAsync(userModel.Email);
+            if(userAvaiblable == null)
+            {
+                return NotFound();
+            }
+            userAvaiblable.FirstName = userModel.FirstName;
+            userAvaiblable.LastName = userModel.LastName;
+            userAvaiblable.PasswordHash = _userManager.PasswordHasher.HashPassword(userAvaiblable, userModel.Password);
+           
+            userAvaiblable.Phone = userModel.Phone;
+            userAvaiblable.Address = userModel.Address;
+
+            var result = await _userManager.UpdateAsync(userAvaiblable);
+            if (!result.Succeeded)
+            {
+                return Ok(result.Errors);
+            }
+            return StatusCode(201);
+
+        }
+
+
+
+
+
+
+
+
 
 
         // support functions 
