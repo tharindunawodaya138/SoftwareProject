@@ -128,7 +128,8 @@ namespace Govimithuro.Controllers
                     UserFirstName = user.FirstName,
                     UserLastName = user.LastName, 
                     UserEmail = user.Email,
-                    UserAddress = user.Address, 
+                    UserAddress = user.Address,
+                    UserPhone = user.Phone,
                     Token = token });
             }
             return Unauthorized("Invalid Authentication");
