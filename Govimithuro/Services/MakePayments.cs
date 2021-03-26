@@ -16,6 +16,7 @@ namespace Govimithuro.Services
             _configuration = configuration;
         }
 
+        public static bool paymentStatus = false;
         public async Task PayAsync(string cardNo, int month, int year, string cvv, int totalPrice)
         {
             try
@@ -46,7 +47,10 @@ namespace Govimithuro.Services
                 var service = new ChargeService();
                 Charge charge = await service.CreateAsync(options);
 
-
+                if (charge.Paid)
+                {
+                    paymentStatus = true;
+                }
 
             }
             catch (Exception)

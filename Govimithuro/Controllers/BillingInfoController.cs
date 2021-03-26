@@ -87,12 +87,33 @@ namespace Govimithuro.Controllers
         [HttpPost]
         public async Task<ActionResult<BillingInfo>> PostBillingInfo(BillingInfo billingInfo)
         {
-            _context.BillingInfoTable.Add(billingInfo);
-            await _context.SaveChangesAsync();
-            await _makePayment.PayAsync(billingInfo.CardNo, billingInfo.ExpMonth, billingInfo.ExpYear, billingInfo.Cvv, billingInfo.TotalPrice);
-            await _mailService.SendEmailAsync(billingInfo.Email, "Payment Confirmation for Bill No:" + billingInfo.BillingId, "<p><strong>Thank you for using Govimithuro!</strong></p> <p>This email is to confirm your recent transaction.</p><p> Card Holder's Name:" + billingInfo.CardName + "<p>Card No :" + billingInfo.CardNo + "<p>Date :" + DateTime.Now);
+            await _makePayment.PayAsync(billingInfo.CardNo, billingInfo.ExpMonth, billingInfo.ExpYear, billingInfo.Cvv, billingInfo.TotalPrice * 100);
+            if (MakePayment.paymentStatus)
+            {
+                _context.BillingInfoTable.Add(billingInfo);
+                await _context.SaveChangesAsync();
+                await _mailService.SendEmailAsync
+                (
+                    billingInfo.Email,
+                    "Payment Confirmation for Bill No:" + billingInfo.BillingId,
+                    "<p><strong>Thank you for using Govimithuro!</strong></p>" +
+                    " <p>This email is to confirm your recent transaction.</p>" +
+                    "<p> Card Holder's Name:" + billingInfo.CardName +
+                    "<p>Card No :" + billingInfo.CardNo +
+                    "<p> <strong>Total: Rs." + billingInfo.TotalPrice +
+                    "<p>Date :" + DateTime.Now
+                );
+            }
+            var newUser = CreatedAtAction("GetBillingInfo", new { id = billingInfo.BillingId }, billingInfo);
 
-            return CreatedAtAction("GetBillingInfo", new { id = billingInfo.BillingId }, billingInfo);
+            if (newUser != null)
+            {
+                return Ok("Success");
+            }
+            else
+            {
+                return Ok("Error");
+            }
         }
 
         // DELETE: api/BillingInfo/5
