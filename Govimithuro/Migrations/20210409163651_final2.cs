@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Govimithuro.Migrations
 {
-    public partial class checksystem1 : Migration
+    public partial class final2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -73,6 +73,21 @@ namespace Govimithuro.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ClientQueryTable",
+                columns: table => new
+                {
+                    QueryId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ClientQueryTable", x => x.QueryId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CustomerTable",
                 columns: table => new
                 {
@@ -88,6 +103,36 @@ namespace Govimithuro.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CustomerTable", x => x.CustomerID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DeliveryInfoTable",
+                columns: table => new
+                {
+                    DeliveryId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderId = table.Column<int>(nullable: false),
+                    BoughtDate = table.Column<string>(nullable: true),
+                    ProductName = table.Column<string>(nullable: true),
+                    Quantity = table.Column<float>(nullable: false),
+                    FarmerName = table.Column<string>(nullable: true),
+                    FarmerEmail = table.Column<string>(nullable: true),
+                    FarmerPhone = table.Column<string>(nullable: true),
+                    FarmerAddress = table.Column<string>(nullable: true),
+                    CustomerName = table.Column<string>(nullable: true),
+                    CustomerEmail = table.Column<string>(nullable: true),
+                    CustomerPhone = table.Column<string>(nullable: true),
+                    CustomerAddress = table.Column<string>(nullable: true),
+                    Accepted = table.Column<string>(nullable: true),
+                    Transit = table.Column<string>(nullable: true),
+                    Delivered = table.Column<string>(nullable: true),
+                    ExpectedDelivery = table.Column<string>(nullable: true),
+                    NotReceived = table.Column<string>(nullable: true),
+                    DisputeMessage = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DeliveryInfoTable", x => x.DeliveryId);
                 });
 
             migrationBuilder.CreateTable(
@@ -242,17 +287,17 @@ namespace Govimithuro.Migrations
             migrationBuilder.InsertData(
                 table: "IdentityRole",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "60339d08-4853-4b86-a2e1-8c24533babe5", "927beb9e-aa9c-4f3e-916c-b962084e1d79", "Buyer", "BUYER" });
+                values: new object[] { "3bbda8f2-4ffd-4c74-ba80-3c071e056ff9", "24ef671e-7ef0-4d50-ac7f-8fb37d536622", "Buyer", "BUYER" });
 
             migrationBuilder.InsertData(
                 table: "IdentityRole",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "f043148c-c0b0-4d31-9a49-152fd2ac5170", "7ed3fa8c-6f3f-41a1-906e-3eb992bf9d91", "Seller", "SELLER" });
+                values: new object[] { "a057b700-8bca-45fe-a116-501e3d332c45", "e6edc58e-e5a1-48c9-beca-88e614da4aa7", "Seller", "SELLER" });
 
             migrationBuilder.InsertData(
                 table: "IdentityRole",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "6416800d-0a1a-4fae-bfef-a549d3df5e6c", "560dcfc6-6006-470b-a86e-f774f876853b", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "f7e20b78-75cb-43e6-b67c-6dcf6490ef36", "b31f21b7-dd30-431b-9a2d-34f89b43f1ec", "Administrator", "ADMINISTRATOR" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -270,7 +315,13 @@ namespace Govimithuro.Migrations
                 name: "CategoryTable");
 
             migrationBuilder.DropTable(
+                name: "ClientQueryTable");
+
+            migrationBuilder.DropTable(
                 name: "CustomerTable");
+
+            migrationBuilder.DropTable(
+                name: "DeliveryInfoTable");
 
             migrationBuilder.DropTable(
                 name: "FarmerTable");

@@ -20,7 +20,7 @@ namespace Govimithuro.Controllers
         public readonly IConfiguration _config;
         //------------------
 
-        public LoginController(IConfiguration config,GovimithuroDbContext context)
+        public LoginController(IConfiguration config, GovimithuroDbContext context)
         {
             _context = context;
         }
@@ -51,50 +51,9 @@ namespace Govimithuro.Controllers
 
 
 
-        // POST: api/Login
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<Login>> PostLogin(Login login)
-        {
-            try
-            {            // CustomerModelDB.Add(newcustomer);
-                var CheckEmailCustomer = _context.CustomerTable.FirstOrDefault(m => m.Email.ToLower() == login.Email.ToLower()); //check email already exit or not
-                var CheckPasswordCustomer = _context.CustomerTable.FirstOrDefault(m => m.Password == login.Password);
-                
-                //  var CheckEmailFarmer = _context.FarmerTable.FirstOrDefault(m => m.Email.ToLower() == login.Email.ToLower()); //check email already exit or not
-                //var CheckPasswordFarmer = _context.FarmerTable.FirstOrDefault(m => m.Password == login.Password);
 
 
-                if ((CheckEmailCustomer == null || CheckPasswordCustomer == null) /*&& (CheckEmailSeller == null || CheckPasswordSeller == null)*/)
-                {
-
-                    return Ok("NOT VALID"); //New page
-                }
-
-                else
-                {
-                    // return Ok(CheckPasswordCustomer);   // sends the data of user
-                    return Ok("Welcome");
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            /*
-             _context.LoginTable.Add(login);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetLogin", new { id = login.LoginId }, login);
-        }
-*/
-
-        }
     }
-
 }
     
             

@@ -30,7 +30,6 @@ namespace Govimithuro.Models
 
         public DbSet<Govimithuro.Models.Admin> AdminTable { get; set; }
         public DbSet<Govimithuro.Models.Customer> CustomerTable { get; set; }
-
         public DbSet<Govimithuro.Models.Farmer> FarmerTable { get; set; }
         public DbSet<Govimithuro.Models.Order> OrderTable { get; set; }
         public DbSet<Govimithuro.Models.OrderDetails> OrderDetailsTable { get; set; }
@@ -39,7 +38,8 @@ namespace Govimithuro.Models
         public DbSet<Govimithuro.Models.Category> CategoryTable { get; set; }
         public DbSet<Govimithuro.Models.BillingInfo> BillingInfoTable { get; set; }
         public DbSet<Govimithuro.Models.Login> LoginTable { get; set; }
-
+        public DbSet<Govimithuro.Models.ClientQuery> ClientQueryTable { get; set; }
+        public DbSet<Govimithuro.Models.DeliveryInfo> DeliveryInfoTable { get; set; }
     }
 
 

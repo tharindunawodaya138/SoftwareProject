@@ -61,7 +61,7 @@ namespace Govimithuro.Controllers
         ///////// </test>
 
 
-
+        //________________________________________________________________________________________________
         // this is for customer registration
         [HttpPost("Customer")]
         public async Task<ActionResult> Customer(UserRegistrationModel userModel)
@@ -85,7 +85,7 @@ namespace Govimithuro.Controllers
 
         }
 
-
+        //________________________________________________________________________________________________
         // this is for farmer registration
         [HttpPost("Farmer")]
         public async Task<ActionResult> Farmer(UserRegistrationModel userModel)
@@ -110,7 +110,7 @@ namespace Govimithuro.Controllers
         }
 
 
-
+        //________________________________________________________________________________________________
         // this is for Administrator registration
         [HttpPost("Administrator")]
         public async Task<ActionResult> Administrator(UserRegistrationModel userModel)
@@ -133,6 +133,7 @@ namespace Govimithuro.Controllers
 
         }
 
+        //__________________________________________________________________________________________________________
         // All the login activities are done through this. Token will be issued depending on the role
         [HttpPost("Login")]
         public async Task<IActionResult> Login(UserLoginModel userModel)
@@ -165,8 +166,8 @@ namespace Govimithuro.Controllers
 
         }
 
-
-
+        //_______________________________________________________________________________________________________________
+        // this controller for update user data
         [HttpPost("UpdateUser")]
         public async Task<ActionResult> UpdateUser(UserRegistrationModel userModel)
         {
@@ -177,8 +178,7 @@ namespace Govimithuro.Controllers
             }
             userAvaiblable.FirstName = userModel.FirstName;
             userAvaiblable.LastName = userModel.LastName;
-            userAvaiblable.PasswordHash = _userManager.PasswordHasher.HashPassword(userAvaiblable, userModel.Password);
-           
+            userAvaiblable.PasswordHash = _userManager.PasswordHasher.HashPassword(userAvaiblable, userModel.Password);           
             userAvaiblable.Phone = userModel.Phone;
             userAvaiblable.Address = userModel.Address;
 
@@ -190,14 +190,7 @@ namespace Govimithuro.Controllers
             return StatusCode(201);
 
         }
-
-
-
-
-
-
-
-
+        
 
 
         // support functions 

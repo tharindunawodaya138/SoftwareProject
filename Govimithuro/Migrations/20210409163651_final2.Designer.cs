@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Govimithuro.Migrations
 {
     [DbContext(typeof(GovimithuroDbContext))]
-    [Migration("20210321003459_EditOrderModel")]
-    partial class EditOrderModel
+    [Migration("20210409163651_final2")]
+    partial class final2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -58,14 +58,20 @@ namespace Govimithuro.Migrations
                     b.Property<string>("CardNo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Cvv")
-                        .HasColumnType("int");
+                    b.Property<string>("Cvv")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ExpDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ExpMonth")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ExpYear")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalPrice")
+                        .HasColumnType("int");
 
                     b.HasKey("BillingId");
 
@@ -84,6 +90,9 @@ namespace Govimithuro.Migrations
 
                     b.Property<int>("NumOfProducts")
                         .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TotalPrice")
                         .HasColumnType("int");
@@ -109,6 +118,27 @@ namespace Govimithuro.Migrations
                     b.HasKey("CategoryID");
 
                     b.ToTable("CategoryTable");
+                });
+
+            modelBuilder.Entity("Govimithuro.Models.ClientQuery", b =>
+                {
+                    b.Property<int>("QueryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("QueryId");
+
+                    b.ToTable("ClientQueryTable");
                 });
 
             modelBuilder.Entity("Govimithuro.Models.Customer", b =>
@@ -139,6 +169,72 @@ namespace Govimithuro.Migrations
                     b.HasKey("CustomerID");
 
                     b.ToTable("CustomerTable");
+                });
+
+            modelBuilder.Entity("Govimithuro.Models.DeliveryInfo", b =>
+                {
+                    b.Property<int>("DeliveryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Accepted")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BoughtDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Delivered")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DisputeMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExpectedDelivery")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FarmerAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FarmerEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FarmerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FarmerPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NotReceived")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Quantity")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Transit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DeliveryId");
+
+                    b.ToTable("DeliveryInfoTable");
                 });
 
             modelBuilder.Entity("Govimithuro.Models.Farmer", b =>
@@ -216,6 +312,9 @@ namespace Govimithuro.Migrations
                     b.Property<string>("CustomerName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Date")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -240,17 +339,11 @@ namespace Govimithuro.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("OrderNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<float>("Quantity")
-                        .HasColumnType("real");
-
-                    b.Property<float>("UnitPrice")
-                        .HasColumnType("real");
+                    b.Property<string>("Feedback")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OrderId");
 
@@ -310,6 +403,12 @@ namespace Govimithuro.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("AgriBranch")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AscrNo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -330,6 +429,9 @@ namespace Govimithuro.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Nic")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(max)");
@@ -360,7 +462,7 @@ namespace Govimithuro.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("UserTable");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -384,22 +486,22 @@ namespace Govimithuro.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "fb92e9c3-91dc-493e-ac0a-5bef3bbc943c",
-                            ConcurrencyStamp = "df350fe7-5142-46f9-ad62-5abc6c7174a3",
+                            Id = "3bbda8f2-4ffd-4c74-ba80-3c071e056ff9",
+                            ConcurrencyStamp = "24ef671e-7ef0-4d50-ac7f-8fb37d536622",
                             Name = "Buyer",
                             NormalizedName = "BUYER"
                         },
                         new
                         {
-                            Id = "5a9b2fed-831c-4f9d-9196-6f53cca7339d",
-                            ConcurrencyStamp = "c66bbee6-157e-43af-8ac4-435c3d522ba7",
+                            Id = "a057b700-8bca-45fe-a116-501e3d332c45",
+                            ConcurrencyStamp = "e6edc58e-e5a1-48c9-beca-88e614da4aa7",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         },
                         new
                         {
-                            Id = "fbd23870-9da9-4708-a6bd-06578db6df2b",
-                            ConcurrencyStamp = "20034185-a0d4-4e77-8c61-ea29b4f46607",
+                            Id = "f7e20b78-75cb-43e6-b67c-6dcf6490ef36",
+                            ConcurrencyStamp = "b31f21b7-dd30-431b-9a2d-34f89b43f1ec",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

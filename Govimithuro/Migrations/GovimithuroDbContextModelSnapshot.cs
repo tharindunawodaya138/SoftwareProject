@@ -118,6 +118,27 @@ namespace Govimithuro.Migrations
                     b.ToTable("CategoryTable");
                 });
 
+            modelBuilder.Entity("Govimithuro.Models.ClientQuery", b =>
+                {
+                    b.Property<int>("QueryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("QueryId");
+
+                    b.ToTable("ClientQueryTable");
+                });
+
             modelBuilder.Entity("Govimithuro.Models.Customer", b =>
                 {
                     b.Property<int>("CustomerID")
@@ -146,6 +167,72 @@ namespace Govimithuro.Migrations
                     b.HasKey("CustomerID");
 
                     b.ToTable("CustomerTable");
+                });
+
+            modelBuilder.Entity("Govimithuro.Models.DeliveryInfo", b =>
+                {
+                    b.Property<int>("DeliveryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Accepted")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BoughtDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Delivered")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DisputeMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExpectedDelivery")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FarmerAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FarmerEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FarmerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FarmerPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NotReceived")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Quantity")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Transit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DeliveryId");
+
+                    b.ToTable("DeliveryInfoTable");
                 });
 
             modelBuilder.Entity("Govimithuro.Models.Farmer", b =>
@@ -397,22 +484,22 @@ namespace Govimithuro.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "60339d08-4853-4b86-a2e1-8c24533babe5",
-                            ConcurrencyStamp = "927beb9e-aa9c-4f3e-916c-b962084e1d79",
+                            Id = "3bbda8f2-4ffd-4c74-ba80-3c071e056ff9",
+                            ConcurrencyStamp = "24ef671e-7ef0-4d50-ac7f-8fb37d536622",
                             Name = "Buyer",
                             NormalizedName = "BUYER"
                         },
                         new
                         {
-                            Id = "f043148c-c0b0-4d31-9a49-152fd2ac5170",
-                            ConcurrencyStamp = "7ed3fa8c-6f3f-41a1-906e-3eb992bf9d91",
+                            Id = "a057b700-8bca-45fe-a116-501e3d332c45",
+                            ConcurrencyStamp = "e6edc58e-e5a1-48c9-beca-88e614da4aa7",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         },
                         new
                         {
-                            Id = "6416800d-0a1a-4fae-bfef-a549d3df5e6c",
-                            ConcurrencyStamp = "560dcfc6-6006-470b-a86e-f774f876853b",
+                            Id = "f7e20b78-75cb-43e6-b67c-6dcf6490ef36",
+                            ConcurrencyStamp = "b31f21b7-dd30-431b-9a2d-34f89b43f1ec",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });

@@ -12,7 +12,7 @@ namespace Govimithuro.Controllers
 {
     //Authorized for Administrator only
 
-    [Authorize(Roles = "Administrator")]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -55,7 +55,7 @@ namespace Govimithuro.Controllers
 
         //Authorized for Administrator only
 
-        [Authorize(Roles = "Administrator")]
+       
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> DeleteUser(string id)
         {
