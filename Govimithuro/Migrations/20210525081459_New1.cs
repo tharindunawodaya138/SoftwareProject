@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Govimithuro.Migrations
 {
-    public partial class final2 : Migration
+    public partial class New1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -231,6 +231,29 @@ namespace Govimithuro.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProductCheckTable",
+                columns: table => new
+                {
+                    ProductId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductName = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    ReorderLevel = table.Column<int>(nullable: false),
+                    Quantity = table.Column<float>(nullable: false),
+                    AvailableQuantity = table.Column<string>(nullable: true),
+                    Addresse = table.Column<string>(nullable: true),
+                    CategoryName = table.Column<string>(nullable: true),
+                    ProductDescription = table.Column<string>(nullable: true),
+                    UnitPrice = table.Column<float>(nullable: false),
+                    UnitWeight = table.Column<float>(nullable: false),
+                    ImageName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductCheckTable", x => x.ProductId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductTable",
                 columns: table => new
                 {
@@ -240,6 +263,7 @@ namespace Govimithuro.Migrations
                     Email = table.Column<string>(nullable: true),
                     ReorderLevel = table.Column<int>(nullable: false),
                     Quantity = table.Column<float>(nullable: false),
+                    AvailableQuantity = table.Column<string>(nullable: true),
                     Addresse = table.Column<string>(nullable: true),
                     CategoryName = table.Column<string>(nullable: true),
                     ProductDescription = table.Column<string>(nullable: true),
@@ -287,17 +311,17 @@ namespace Govimithuro.Migrations
             migrationBuilder.InsertData(
                 table: "IdentityRole",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "3bbda8f2-4ffd-4c74-ba80-3c071e056ff9", "24ef671e-7ef0-4d50-ac7f-8fb37d536622", "Buyer", "BUYER" });
+                values: new object[] { "36c4762e-546d-461e-ae3a-47bc05e3bf50", "f0d89186-d6fa-48da-bb36-011fb45ee6c4", "Buyer", "BUYER" });
 
             migrationBuilder.InsertData(
                 table: "IdentityRole",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "a057b700-8bca-45fe-a116-501e3d332c45", "e6edc58e-e5a1-48c9-beca-88e614da4aa7", "Seller", "SELLER" });
+                values: new object[] { "7ab39975-11e0-49f6-98cf-05565e1bd4d2", "e9254c4d-2c37-4216-8ffe-03db1454b1ea", "Seller", "SELLER" });
 
             migrationBuilder.InsertData(
                 table: "IdentityRole",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "f7e20b78-75cb-43e6-b67c-6dcf6490ef36", "b31f21b7-dd30-431b-9a2d-34f89b43f1ec", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "1479167f-7f5f-4dfc-a749-2079e03c7e8e", "876ba257-d7ee-4106-810f-3372c48f8790", "Administrator", "ADMINISTRATOR" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -340,6 +364,9 @@ namespace Govimithuro.Migrations
 
             migrationBuilder.DropTable(
                 name: "OrderTable");
+
+            migrationBuilder.DropTable(
+                name: "ProductCheckTable");
 
             migrationBuilder.DropTable(
                 name: "ProductTable");

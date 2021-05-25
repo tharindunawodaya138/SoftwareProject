@@ -103,14 +103,15 @@ namespace Govimithuro.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct([FromForm] Product product)
+        public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-            
+
             _context.ProductTable.Add(product);
             await _context.SaveChangesAsync();
 
-            return StatusCode(201);
+            return CreatedAtAction("GetProduct", new { id = product.ProductId }, product);
         }
+
 
         // DELETE: api/Product/5
         [HttpDelete("{id}")]

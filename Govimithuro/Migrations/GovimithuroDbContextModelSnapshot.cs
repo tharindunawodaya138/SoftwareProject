@@ -358,6 +358,9 @@ namespace Govimithuro.Migrations
                     b.Property<string>("Addresse")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("AvailableQuantity")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CategoryName")
                         .HasColumnType("nvarchar(max)");
 
@@ -388,6 +391,51 @@ namespace Govimithuro.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("ProductTable");
+                });
+
+            modelBuilder.Entity("Govimithuro.Models.ProductCheck", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Addresse")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AvailableQuantity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Quantity")
+                        .HasColumnType("real");
+
+                    b.Property<int>("ReorderLevel")
+                        .HasColumnType("int");
+
+                    b.Property<float>("UnitPrice")
+                        .HasColumnType("real");
+
+                    b.Property<float>("UnitWeight")
+                        .HasColumnType("real");
+
+                    b.HasKey("ProductId");
+
+                    b.ToTable("ProductCheckTable");
                 });
 
             modelBuilder.Entity("Govimithuro.Models.User", b =>
@@ -484,22 +532,22 @@ namespace Govimithuro.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3bbda8f2-4ffd-4c74-ba80-3c071e056ff9",
-                            ConcurrencyStamp = "24ef671e-7ef0-4d50-ac7f-8fb37d536622",
+                            Id = "36c4762e-546d-461e-ae3a-47bc05e3bf50",
+                            ConcurrencyStamp = "f0d89186-d6fa-48da-bb36-011fb45ee6c4",
                             Name = "Buyer",
                             NormalizedName = "BUYER"
                         },
                         new
                         {
-                            Id = "a057b700-8bca-45fe-a116-501e3d332c45",
-                            ConcurrencyStamp = "e6edc58e-e5a1-48c9-beca-88e614da4aa7",
+                            Id = "7ab39975-11e0-49f6-98cf-05565e1bd4d2",
+                            ConcurrencyStamp = "e9254c4d-2c37-4216-8ffe-03db1454b1ea",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         },
                         new
                         {
-                            Id = "f7e20b78-75cb-43e6-b67c-6dcf6490ef36",
-                            ConcurrencyStamp = "b31f21b7-dd30-431b-9a2d-34f89b43f1ec",
+                            Id = "1479167f-7f5f-4dfc-a749-2079e03c7e8e",
+                            ConcurrencyStamp = "876ba257-d7ee-4106-810f-3372c48f8790",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
