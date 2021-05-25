@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\acer\\Desktop\\db23\\Govimithuro\\Govimithuro.csproj": {}
+    "E:\\6 th Semester\\Softwear Project\\back 2\\back 2\\SoftwareProject-backend\\Govimithuro\\Govimithuro.csproj": {}
   },
   "projects": {
-    "C:\\Users\\acer\\Desktop\\db23\\Govimithuro\\Govimithuro.csproj": {
+    "E:\\6 th Semester\\Softwear Project\\back 2\\back 2\\SoftwareProject-backend\\Govimithuro\\Govimithuro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\acer\\Desktop\\db23\\Govimithuro\\Govimithuro.csproj",
+        "projectUniqueName": "E:\\6 th Semester\\Softwear Project\\back 2\\back 2\\SoftwareProject-backend\\Govimithuro\\Govimithuro.csproj",
         "projectName": "Govimithuro",
-        "projectPath": "C:\\Users\\acer\\Desktop\\db23\\Govimithuro\\Govimithuro.csproj",
-        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\acer\\Desktop\\db23\\Govimithuro\\obj\\",
+        "projectPath": "E:\\6 th Semester\\Softwear Project\\back 2\\back 2\\SoftwareProject-backend\\Govimithuro\\Govimithuro.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "E:\\6 th Semester\\Softwear Project\\back 2\\back 2\\SoftwareProject-backend\\Govimithuro\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +85,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             },
             "SendGrid": {
               "target": "Package",
@@ -111,7 +114,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
