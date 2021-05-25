@@ -40,6 +40,7 @@ namespace Govimithuro.Models
         public DbSet<Govimithuro.Models.Login> LoginTable { get; set; }
         public DbSet<Govimithuro.Models.ClientQuery> ClientQueryTable { get; set; }
         public DbSet<Govimithuro.Models.DeliveryInfo> DeliveryInfoTable { get; set; }
+        public DbSet<Govimithuro.Models.ProductCheck> ProductCheckTable { get; set; }
     }
 
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Govimithuro.Models
 {
-    public class Product
+    public class ProductCheck
     {
         [Key]
         public int ProductId { get; set; }
@@ -24,7 +24,7 @@ namespace Govimithuro.Models
         public float UnitPrice { get; set; }
         public float UnitWeight { get; set; }
         public string ImageName { get; set; }
-        
+
 
         [NotMapped]
         public IFormFile ImageFile { get; set; }

@@ -13,23 +13,23 @@ namespace Govimithuro.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductChecksController : ControllerBase
     {
         private readonly GovimithuroDbContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
 
-        public ProductController(GovimithuroDbContext context, IWebHostEnvironment hostEnvironment)
+        public ProductChecksController(GovimithuroDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
             this._hostEnvironment = hostEnvironment;
         }
 
-        // GET: api/Product
+        // GET: api/ProductChecks
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProductTable()
+        public async Task<ActionResult<IEnumerable<ProductCheck>>> GetProductCheckTable()
         {
-            return await _context.ProductTable
-                .Select(x => new Product()
+            return await _context.ProductCheckTable
+                .Select(x => new ProductCheck()
                 {
                     ProductId = x.ProductId,
                     ProductName = x.ProductName,
@@ -48,37 +48,37 @@ namespace Govimithuro.Controllers
                 .ToListAsync();
         }
 
-        // GET: api/Product/5
+        // GET: api/ProductChecks/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductCheck>> GetProductCheck(int id)
         {
-            var product = await _context.ProductTable.FindAsync(id);
+            var productCheck = await _context.ProductCheckTable.FindAsync(id);
 
-            if (product == null)
+            if (productCheck == null)
             {
                 return NotFound();
             }
 
-            return product;
+            return productCheck;
         }
 
-        // PUT: api/Product/5
+        // PUT: api/ProductChecks/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduct(int id, Product product)
+        public async Task<IActionResult> PutProductCheck(int id, ProductCheck productCheck)
         {
-            if (id != product.ProductId)
+            if (id != productCheck.ProductId)
             {
                 return BadRequest();
             }
 
-            if (product.ImageFile != null)
+            if (productCheck.ImageFile != null)
             {
-                DeleteImage(product.ImageName);
-                product.ImageName = await SaveImage(product.ImageFile);
+                DeleteImage(productCheck.ImageName);
+                productCheck.ImageName = await SaveImage(productCheck.ImageFile);
             }
-            _context.Entry(product).State = EntityState.Modified;
+            _context.Entry(productCheck).State = EntityState.Modified;
 
             try
             {
@@ -86,7 +86,7 @@ namespace Govimithuro.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(id))
+                if (!ProductCheckExists(id))
                 {
                     return NotFound();
                 }
@@ -99,41 +99,41 @@ namespace Govimithuro.Controllers
             return NoContent();
         }
 
-        // POST: api/Product
+        // POST: api/ProductChecks
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct([FromForm] Product product)
+        public async Task<ActionResult<ProductCheck>> PostProductCheck([FromForm] ProductCheck productCheck)
         {
-            
-            _context.ProductTable.Add(product);
+            productCheck.ImageName = await SaveImage(productCheck.ImageFile);
+            _context.ProductCheckTable.Add(productCheck);
             await _context.SaveChangesAsync();
 
             return StatusCode(201);
         }
 
-        // DELETE: api/Product/5
+
+        // DELETE: api/ProductChecks/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Product>> DeleteProduct(int id)
+        public async Task<ActionResult<ProductCheck>> DeleteProductCheck(int id)
         {
-            var product = await _context.ProductTable.FindAsync(id);
-            if (product == null)
+            var productCheck = await _context.ProductCheckTable.FindAsync(id);
+            if (productCheck == null)
             {
                 return NotFound();
             }
 
-            DeleteImage(product.ImageName);
-            _context.ProductTable.Remove(product);
+            
+            _context.ProductCheckTable.Remove(productCheck);
             await _context.SaveChangesAsync();
 
-            return product;
+            return productCheck;
         }
 
-        private bool ProductExists(int id)
+        private bool ProductCheckExists(int id)
         {
-            return _context.ProductTable.Any(e => e.ProductId == id);
+            return _context.ProductCheckTable.Any(e => e.ProductId == id);
         }
-
         [NonAction]
         public async Task<string> SaveImage(IFormFile imageFile)
         {
@@ -156,4 +156,3 @@ namespace Govimithuro.Controllers
         }
     }
 }
-
