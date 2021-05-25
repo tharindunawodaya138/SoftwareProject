@@ -41,6 +41,7 @@ namespace Govimithuro.Models
         public DbSet<Govimithuro.Models.ClientQuery> ClientQueryTable { get; set; }
         public DbSet<Govimithuro.Models.DeliveryInfo> DeliveryInfoTable { get; set; }
         public DbSet<Govimithuro.Models.ProductCheck> ProductCheckTable { get; set; }
+        public DbSet<Govimithuro.Models.Review> Review { get; set; }
     }
 
 
